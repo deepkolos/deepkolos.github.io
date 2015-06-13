@@ -1,7 +1,16 @@
-
-$("#aboutme").click(function (){
-	$("#detail").css("margin","0 0 0 -10px")
-});
+var $debug = document.getElementById("debug");
+$("#aboutme").click(function (){show_detail();});
+$('#mainbox').click(function (){hide_detail();});
+function show_detail(){
+	$("#detail").css("margin","0 0 0 -10px");
+	$('#mainbox').css('z-index','80');
+	hide_detail_t=setTimeout("hide_detail()",8000);
+}
+function hide_detail(){
+		$('#detail').css('margin','-150px 0 0 -10px');
+		$('#mainbox').css('z-index','-1');	
+		clearTimeout(hide_detail_t);
+	};
 
 
 /*
