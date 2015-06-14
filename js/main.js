@@ -11,7 +11,10 @@ function hide_detail(){
 		$('#mainbox').css('z-index','-1');	
 		clearTimeout(hide_detail_t);
 	};
-
+/*导航栏*/
+$("#nav span").click(function (){
+	
+});
 
 /*
 var $column = $("#column");
