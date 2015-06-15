@@ -14,6 +14,39 @@ function hide_detail(){
 		$('#mainbox').css('z-index','-1');	
 		clearTimeout(hide_detail_t);
 	};
+	
+//加载xml
+var loadXML = function(xmlFile){  
+    xmlDoc=null;  
+     if (window.ActiveXObject){  
+        xmlDoc = new ActiveXObject('Msxml2.DOMDocument');  
+        xmlDoc.async=false;  
+        xmlDoc.load(xmlFile);  
+    }  
+    else if (document.implementation && document.implementation.createDocument){  
+        var xmlhttp = new window.XMLHttpRequest();  
+        xmlhttp.open("GET",xmlFile,false);  
+        xmlhttp.send(null);  
+        var xmlDoc = xmlhttp.responseXML.documentElement;   
+    }  
+    else {xmlDoc=null;}  
+    return xmlDoc;  
+}  
+
+var xml=loadXML("articles/data.xml");
+//加载首页10篇博文
+function loadLatestArticle(){
+	for (var i = 0; i < 10; i++) {
+		var article = xml.getElementsByTagName("article")[i];
+		var title = article.getElementsByTagName("title");
+		var summary = article.getElementsByTagName("summary");
+		var text = article.getElementsByTagName("text");
+		$debug.innerHTML=title +"|<br>"+summary +"|<br>"+ text+"|<br>"
+	}
+	//alert(xml.getElementsByTagName("article"))
+}
+loadLatestArticle();
+
 //导航栏
 $("#b_nav0").click(function (){
 	var b_nowclicked_id = 0;
@@ -52,39 +85,10 @@ function switch_pages(n,b){
 			"opacity" : "0.9"
 		});
 		b_beforeclicked_id = n;
+		loadLatestArticle()
 	}
 };
-//加载xml
-var loadXML = function(xmlFile){  
-    xmlDoc=null;  
-     if (window.ActiveXObject){  
-        xmlDoc = new ActiveXObject('Msxml2.DOMDocument');  
-        xmlDoc.async=false;  
-        xmlDoc.load(xmlFile);  
-    }  
-    else if (document.implementation && document.implementation.createDocument){  
-        var xmlhttp = new window.XMLHttpRequest();  
-        xmlhttp.open("GET",xmlFile,false);  
-        xmlhttp.send(null);  
-        var xmlDoc = xmlhttp.responseXML.documentElement;   
-    }  
-    else {xmlDoc=null;}  
-    return xmlDoc;  
-}  
 
-var xml=loadXML("articles/data.xml");
-//加载首页10篇博文
-function loadLatestArticle(){
-	for (var i = 0; i < 10; i++) {
-		var article = xml.getElementsByTagName("article")[i];
-		var title = article.getElementsByTagName("title");
-		var summary = article.getElementsByTagName("summary");
-		var text = article.getElementsByTagName("text");
-		$debug.innerHTML=title +"|<br>"+summary +"|<br>"+ text+"|<br>"
-	}
-	alert(xml.getElementsByTagName("article"))
-}
-loadLatestArticle();
 
 
 
