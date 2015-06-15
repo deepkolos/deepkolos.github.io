@@ -29,8 +29,8 @@
 	}
 	* {
 		font-family: "Microsoft YaHei" ! important;
-		transition:all .5s ease-in-out .1s;
-		-webkit-transition:all .5s ease-in-out .1s;
-		-moz-transition:all .5s ease-in-out .1s;
-		-o-transition:all .5s ease-in-out .1s;
+		transition:all .5s ease-in-out .05s;
+		-webkit-transition:all .5s ease-in-out .05s;
+		-moz-transition:all .5s ease-in-out .05s;
+		-o-transition:all .5s ease-in-out .05s;
 	}

@@ -34,12 +34,12 @@ $("#b_nav3").click(function (){
 function switch_pages(n,b){
 	if (n != b) {
 		$("#nav"+n).css({
-			"background" : "red" ,
+			"background" : "white" ,
 			"margin-left" : "-350px" ,
 			"opacity" : "1"
 		});
 		$("#nav"+b).css({
-			"background" : "red" ,
+			"background" : "white" ,
 			"margin-left" : "0" ,
 			"opacity" : "0"
 		});	
@@ -54,6 +54,42 @@ function switch_pages(n,b){
 		b_beforeclicked_id = n;
 	}
 };
+//加载xml
+var loadXML = function(xmlFile){  
+    xmlDoc=null;  
+     if (window.ActiveXObject){  
+        xmlDoc = new ActiveXObject('Msxml2.DOMDocument');  
+        xmlDoc.async=false;  
+        xmlDoc.load(xmlFile);  
+    }  
+    else if (document.implementation && document.implementation.createDocument){  
+        var xmlhttp = new window.XMLHttpRequest();  
+        xmlhttp.open("GET",xmlFile,false);  
+        xmlhttp.send(null);  
+        var xmlDoc = xmlhttp.responseXML.documentElement;   
+    }  
+    else {xmlDoc=null;}  
+    return xmlDoc;  
+}  
+
+var xml=loadXML("articles/data.xml");
+//加载首页10篇博文
+function loadLatestArticle(){
+	for (var i = 0; i < 10; i++) {
+		var article = xml.getElementsByTagName("article")[i];
+		var title = article.getElementsByTagName("title");
+		var summary = article.getElementsByTagName("summary");
+		var text = article.getElementsByTagName("text");
+		$debug.innerHTML=title +"|<br>"+summary +"|<br>"+ text+"|<br>"
+	}
+	alert(xml.getElementsByTagName("article"))
+}
+loadLatestArticle();
+
+
+
+
+
 /*
 var $column = $("#column");
 	$mainbox = $("#mainbox");
