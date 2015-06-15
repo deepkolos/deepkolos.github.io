@@ -33,18 +33,24 @@ $("#b_nav3").click(function (){
 });
 function switch_pages(n,b){
 	if (n != b) {
-		var b_nowclicked = $("#nav"+n);
-		var b_beforeclicked =$("#nav"+b);
-	b_nowclicked.css({
-		"background" : "red" ,
-		"margin-left" : "-350px" ,
-		"opacity" : "1"
-	});
-		b_beforeclicked.css({
+		$("#nav"+n).css({
+			"background" : "red" ,
+			"margin-left" : "-350px" ,
+			"opacity" : "1"
+		});
+		$("#nav"+b).css({
 			"background" : "red" ,
 			"margin-left" : "0" ,
 			"opacity" : "0"
 		});	
+		$("#b_nav"+n).css({
+			"font-weight":"bold",
+			"opacity" : "1"
+		});
+		$("#b_nav"+b).css({
+			"font-weight":"normal",
+			"opacity" : "0.9"
+		});
 		b_beforeclicked_id = n;
 	}
 };

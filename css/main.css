@@ -16,7 +16,7 @@
 		z-index: -1;
 	}
 	#column{
-		position: absolute;
+		position: fixed;
 		top: 0px;
 		left: 0px;
 		width: 100%;
@@ -46,11 +46,11 @@
 	}
 	#aboutme #head{
 		float: left;
-		height: 47px;
-		width: 47px;
+		height: 45px;
+		width: 45px;
 		border-radius:25px;
 		overflow: hidden;
-		border: 1.5px solid white;
+		margin-top:2.5px;
 		
 	}
 	#column span{
@@ -67,7 +67,7 @@
 		background: black;
 		width: 200px;
 		height:100px;
-		position: absolute;
+		position: fixed;
 		margin: -150px 0 0 -10px; 
 		color: white;
 	}
@@ -76,6 +76,8 @@
 		color: white;
 		margin-left: 5px;
 		width: 60px;
+		clear: left;
+		opacity: 0.9;
 	}
 	#back span , #forward span{
 		font-size: 25px;
@@ -89,8 +91,7 @@
 	
 	#nav0,#nav1,#nav2,#nav3{
 		width: 700px;
-		height: auto;
-		background: blue;
+		height: 1000000px;
 		z-index: -1;
 		left: 50%;
 		top: 50px;
