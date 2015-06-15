@@ -87,15 +87,20 @@
 		color: white;
 	}
 	
-	#home,#dir,#plan,#about{
-		width: 75%;
+	#nav0,#nav1,#nav2,#nav3{
+		width: 700px;
 		height: auto;
 		background: blue;
 		z-index: -1;
 		left: 50%;
 		top: 50px;
-		margin-left: -35%;
+		margin-left: 0;
+		opacity:0;
 		position: absolute;
+		transition:all .5s ease-in-out .1s;
+		-webkit-transition:all .5s ease-in-out .1s;
+		-moz-transition:all .5s ease-in-out .1s;
+		-o-transition:all .5s ease-in-out .1s;
 	}
 	#debug{
 		position: fixed;
@@ -106,3 +111,4 @@
 		background: black;
 		color: white;
 	}
+	
