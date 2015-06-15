@@ -51,7 +51,7 @@
 		border-radius:25px;
 		overflow: hidden;
 		margin-top:2.5px;
-		
+		border: 0px solid black;
 	}
 	#column span{
 		height: 50px;
@@ -62,6 +62,7 @@
 	#aboutme span{
 		font-size: 20px;
 		color: white;
+		clear: left;
 	}
 	#aboutme #detail{
 		background: black;
