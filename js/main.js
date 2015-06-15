@@ -37,13 +37,35 @@ var xml=loadXML("articles/data.xml");
 //加载首页10篇博文
 function loadLatestArticle(){
 	for (var i = 0; i < 10; i++) {
-		var article = xml.getElementsByTagName("article")[i];
-		var title = article.getElementsByTagName("title");
-		var summary = article.getElementsByTagName("summary");
-		var text = article.getElementsByTagName("text");
-		$debug.innerHTML=title +"|<br>"+summary +"|<br>"+ text+"|<br>"
+		var article = xml.getElementsByTagName("article")[i] ;
+		var title = article.getElementsByTagName("title")[0].childNodes[0].nodeValue ;
+		var summary = article.getElementsByTagName("summary")[0].childNodes[0].nodeValue ;
+		var text = article.getElementsByTagName("text")[0].childNodes[0].nodeValue ;
+		var home = document.getElementById("nav0");
+		//创建文章卡片 method 1
+		/*
+		var home = document.getElementById("nav0")
+		var card = document.createElement("div");
+		var card_h2 = document.createElement("h2");
+		var card_span = document.createElement("span");
+		var card_div = document.createElement("div");
+		var attr = document.createAttribute("class");
+		var attr.nodeValue="article";
+		home.appendChild(card);
+		
+		*/
+		$debug.innerHTML=title +"<br>"+summary +"<br>"+ text+"<br>加载成功"
+		//创建文章卡片 method 2
+		var card = "<div class="+"article"+">";
+		card = card +"<h2>"+title+"</h2>";
+		card = card +"<span>"+summary+"</span>";
+		card = card +"<div class="+"article_inf"+">"
+		card = card +"<div>"+"</div>"
+		card = card +"<span>"+"</span>"
+		card = card +"<span class="+"text"+">"+text+"</span>"
+		var cacheHome = home.innerHTML
+		home.innerHTML=cacheHome+card;
 	}
-	//alert(xml.getElementsByTagName("article"))
 }
 loadLatestArticle();
 
@@ -85,7 +107,6 @@ function switch_pages(n,b){
 			"opacity" : "0.9"
 		});
 		b_beforeclicked_id = n;
-		loadLatestArticle()
 	}
 };
 
