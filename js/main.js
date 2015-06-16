@@ -42,6 +42,10 @@ function loadLatestArticle(){
 		var summary = article.getElementsByTagName("summary")[0].childNodes[0].nodeValue ;
 		var text = article.getElementsByTagName("text")[0].childNodes[0].nodeValue ;
 		var home = document.getElementById("nav0");
+		var category = article.getAttribute("category");
+		var year = article.getAttribute("year");
+		var month = article.getAttribute("month");
+		var day = article.getAttribute("day");
 		//创建文章卡片 method 1
 		/*
 		var home = document.getElementById("nav0")
@@ -61,8 +65,8 @@ function loadLatestArticle(){
 		card = card +"<p class="+"summary"+">"+summary+"</p>";
 		card = card +"<span class="+"text"+">"+text+"</span></div>"
 		card = card +"<div class="+"article_inf"+">"
-		card = card +"<div class="+"time"+">"+"</div>"
-		card = card +"<div class="+"category"+">分类:"+"</div></div>"
+		card = card +"<div class="+"time"+">"+year+month+day+"</div>"
+		card = card +"<div class="+"category"+">分类:"+category+"</div></div>"
 		var cacheHome = home.innerHTML
 		home.innerHTML=cacheHome+card;
 	}
@@ -90,7 +94,7 @@ function switch_pages(n,b){
 	if (n != b) {
 		$("#nav"+n).css({
 			"background" : "white" ,
-			"margin-left" : "-325px" ,
+			"margin-left" : "-350px" ,
 			"opacity" : "1"
 		});
 		$("#nav"+b).css({

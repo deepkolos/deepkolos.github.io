@@ -151,7 +151,7 @@
 	.text{
 		background: black;
 		color: wheat;
-		display: none;
+		/display: none;
 	}
 	#debug{
 		position: fixed;
