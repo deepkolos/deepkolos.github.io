@@ -54,15 +54,15 @@ function loadLatestArticle(){
 		home.appendChild(card);
 		
 		*/
-		$debug.innerHTML=title +"<br>"+summary +"<br>"+ text+"<br>加载成功"
+		
 		//创建文章卡片 method 2
 		var card = "<div class="+"article"+">";
 		card = card +"<h2>"+title+"</h2>";
-		card = card +"<span>"+summary+"</span>";
+		card = card +"<p class="+"summary"+">"+summary+"</p>";
+		card = card +"<span class="+"text"+">"+text+"</span></div>"
 		card = card +"<div class="+"article_inf"+">"
-		card = card +"<div>"+"</div>"
-		card = card +"<span>"+"</span>"
-		card = card +"<span class="+"text"+">"+text+"</span>"
+		card = card +"<div class="+"time"+">"+"</div>"
+		card = card +"<div class="+"category"+">分类:"+"</div></div>"
 		var cacheHome = home.innerHTML
 		home.innerHTML=cacheHome+card;
 	}
@@ -90,7 +90,7 @@ function switch_pages(n,b){
 	if (n != b) {
 		$("#nav"+n).css({
 			"background" : "white" ,
-			"margin-left" : "-350px" ,
+			"margin-left" : "-325px" ,
 			"opacity" : "1"
 		});
 		$("#nav"+b).css({
