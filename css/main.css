@@ -9,6 +9,7 @@
 	}
 	body{
 		background: gainsboro;
+		overflow: hidden;
 	}
 	#mainbox{
 		width: 100%;
@@ -94,64 +95,50 @@
 	}
 	
 	#nav0,#nav1,#nav2,#nav3{
-		width: 700px;
-		height: 1000000px;
+		width: 100%;
+		height: 100%;
 		z-index: -1;
-		left: 50%;
 		top: 50px;
-		margin-left: 0;
 		opacity:0;
 		position: absolute;
 		transition:all .5s ease-in-out .05s;
 		-webkit-transition:all .5s ease-in-out .05s;
 		-moz-transition:all .5s ease-in-out .05s;
 		-o-transition:all .5s ease-in-out .05s;
+		overflow-x: hidden;
 	}
 	/*博文卡片*/
 	.article{
-		background: red;
-		width: 500px;
+		/background: red;
+		width: 650px;
 		height: auto;
-		padding: 20px;
-		margin-bottom: 20px;
-		float: left;
+		padding: 25px;
+		left: 50%;
 		min-height: 100px;
+		position: relative;
+		margin-left: -350px;
+		overflow: hidden;
 	}
-	.article *{
-		margin-bottom: 15px;
-		
-	}
-	.article h2{
+
+	.article h1{
 		cursor: pointer;
 	}
 	.summary{
-		background: green;
-		width: 500px;
-		clear: both;
+		font-size: 22px;
+		/background: green;
 	}
 	.article_inf{
-		background: blue;
-		width: 160px;
-		float: right;
-		
-	}
-	.article_inf .time{
-		width: 80px;
-		height:80px;
-		background: gold;
-		border-radius:40px;
-		margin:10px auto;
-		
-	}
-	.article_inf .category{
-		width: 160px;
-		text-align: center;
-		background: gray;
+		padding: 5px;
 	}
 	.text{
-		background: black;
-		color: wheat;
+		font-size: 22px;
 		/display: none;
+	}
+	.fengexian{
+		height: 1px;
+		width: 100%;
+		background-color: black;
+		margin-top: 20px;
 	}
 	#debug{
 		position: fixed;

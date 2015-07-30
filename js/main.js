@@ -3,7 +3,10 @@ var $debug = document.getElementById("debug");
 	$("#mainbox").click(function (){hide_detail();});
 	b_beforeclicked_id = -1 ;
 var hide_detail_t
+
+
 	
+/*
 function show_detail(){
 	$("#detail").css("margin","0 0 0 -10px");
 	$('#mainbox').css('z-index','80');
@@ -15,6 +18,7 @@ function hide_detail(){
 		clearTimeout(hide_detail_t);
 	};
 	
+*/
 //加载xml
 var loadXML = function(xmlFile){  
     xmlDoc=null;  
@@ -60,13 +64,11 @@ function loadLatestArticle(){
 		*/
 		
 		//创建文章卡片 method 2
-		var card = "<div class="+"article"+">";
-		card = card +"<h2>"+title+"</h2>";
+		var card = "<div class="+"article"+" id="+"article"+i+" onclick="+"showcard("+i+")"+">";
+		card = card +"<h1>"+title+"</h1>";
+		card = card +"<div class="+"article_inf"+">日期："+year+"年"+month+"月"+day+"日 分类："+category+"</div>"
 		card = card +"<p class="+"summary"+">"+summary+"</p>";
-		card = card +"<span class="+"text"+">"+text+"</span></div>"
-		card = card +"<div class="+"article_inf"+">"
-		card = card +"<div class="+"time"+">"+year+month+day+"</div>"
-		card = card +"<div class="+"category"+">分类:"+category+"</div></div>"
+		card = card +"<span class="+"text"+">"+text+"</span><div class="+"fengexian"+"></div></div>"
 		var cacheHome = home.innerHTML
 		home.innerHTML=cacheHome+card;
 	}
@@ -94,28 +96,37 @@ function switch_pages(n,b){
 	if (n != b) {
 		$("#nav"+n).css({
 			"background" : "white" ,
-			"margin-left" : "-350px" ,
-			"opacity" : "1"
+			"margin-top" : "0" ,
+			"opacity" : "1" ,
+			"z-index" : "10"
 		});
 		$("#nav"+b).css({
 			"background" : "white" ,
-			"margin-left" : "0" ,
-			"opacity" : "0"
+			"margin-top" : "0" ,
+			"opacity" : "1" ,
+			"z-index" : "-1"
 		});	
 		$("#b_nav"+n).css({
 			"font-weight":"bold",
-			"opacity" : "1"
+			"opacity" : "1" 
 		});
 		$("#b_nav"+b).css({
 			"font-weight":"normal",
-			"opacity" : "0.9"
+			"opacity" : "1"
 		});
 		b_beforeclicked_id = n;
+		
 	}
 };
 
-
-
+//展开卡片
+function showcard(n){
+	var article = document.getElementById("article"+n);
+	var title = article.getElementsByTagName("h1")[0];
+	title.style.color="red"
+	article.style.height= "100%"
+}
+//alert($(".article").length+"|"+$(".article")[0])
 
 
 
