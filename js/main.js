@@ -1,4 +1,5 @@
 var url_g  //转存一下url
+var hostURL = "http://deepkolos.github.io/"
 
 //进入动画
 function wellCome(){
@@ -35,3 +36,23 @@ $("#b_nav3").click(function (){openURL();});
 
 //dir 特别对待
 $("#b_nav1").click(function (){openURL();});
+
+
+
+//文章数据储存--点击量
+function loadXML(url){
+	if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	xmlhttp.open("GET", url ,false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML;
+}
+
+loadXML(hostURL+"data.xml");
+
