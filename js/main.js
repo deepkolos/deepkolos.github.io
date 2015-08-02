@@ -32,7 +32,7 @@ function openURL(url){
 //导航栏按钮
 $("#b_nav0").click(function (){openURL(hostURL);});
 $("#b_nav2").click(function (){openURL();});
-$("#b_nav3").click(function (){openURL("articles/about.html");});
+$("#b_nav3").click(function (){openURL(hostURL+"articles/about.html");});
 
 //dir 特别对待
 $("#b_nav1").click(function (){openURL();});
