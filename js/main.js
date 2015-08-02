@@ -30,7 +30,7 @@ function openURL(url){
 //$("#forward").click(function (){goodBye();delayRun("window.history.froward()",400)});
 
 //导航栏按钮
-$("#b_nav0").click(function (){openURL();});
+$("#b_nav0").click(function (){openURL(hostURL);});
 $("#b_nav2").click(function (){openURL();});
 $("#b_nav3").click(function (){openURL();});
 
