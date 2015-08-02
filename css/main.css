@@ -132,12 +132,15 @@
 	}
 	/*文章样式*/
 	.article_content_date{
-		font-size: 16px;
+		font-size: 18px;
 		color: gray;
 	}
 	.article_content_text {
-		font-size: 20px;
+		font-size: 22px;
 		
+	}
+	.article_content_text p{
+		margin-bottom: 30px;
 	}
 	
 	
