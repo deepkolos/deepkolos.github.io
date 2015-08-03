@@ -22,7 +22,7 @@ function delayRun(func,time) {
 function openURL(url){
 	goodBye();
 	url_g = url ;
-	delayRun("window.location.assign(url_g)",400)
+	delayRun("window.location.assign(url_g)",500)
 }
 
 //前进后退 
