@@ -1,6 +1,11 @@
 var url_g  //转存一下url
 var hostURL = "http://deepkolos.github.io/"
 
+//检测文档是否加载完
+if (Document.readystate=="complete") {
+	//wellcome();
+}
+
 //进入动画
 function wellCome(){
 	$("#column").css({"margin-top":"0px" , "opacity":"1"});
@@ -15,7 +20,7 @@ function goodBye(){
 }
 //延迟执行
 function delayRun(func,time) {
-	var thenRun = setTimeout("window.location.assign(url_g)",time)
+	var thenRun = setTimeout(func,time)
 }
 
 //设置超链接延迟
