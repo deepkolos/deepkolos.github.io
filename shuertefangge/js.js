@@ -10,9 +10,9 @@ var goGame = id("goGame");
 var used_timeBox = id("used_time");
 var pageBox ={
 	start : "0px",
-	gaming : "-450px",
-	suspend : "-900px",
-	end : "-1350px"
+	gaming : "-480px",
+	suspend : "-"+2*480+"px",
+	end : "-"+3*480+"px"
 }
 var page = id("page");
 var toggleMenu = -1;
