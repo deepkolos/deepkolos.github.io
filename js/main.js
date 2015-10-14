@@ -43,7 +43,6 @@ $("#b_nav3").click(function (){openURL(hostURL+"articles/about.html");});
 $("#b_nav1").click(function (){openURL();});
 
 
-
 //文章数据储存--点击量
 function loadXML(url){
 	if (window.XMLHttpRequest)

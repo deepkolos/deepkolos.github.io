@@ -1,0 +1,111 @@
+body{
+	width:440px;
+	margin:0;
+}
+#nav{
+	width:440px;
+	height:50px;
+	background:red;
+	z-index:100;
+	margin:0 auto;
+	position:fixed;
+	overflow:hidden;
+	top:0px;
+}
+#nav div{
+	width:50px;
+	height:50px;
+	opacity:0.7;
+	float:left;
+}
+#menu{
+	background:green;
+}
+#menuButton{
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:200;
+}
+#range{
+	background:blue;
+}
+#pk{
+	background:pink;
+}
+#restart{
+	background:yellow;
+}
+#share{
+	background:black;
+	left:190px;
+	position:relative;
+}
+#menu div{
+	width:440px;
+	height:50px;
+}
+#menu div div{
+	width:50px;
+	height:50px;
+	background:orange;
+	
+}
+#shape{
+	background:red;
+	margin-top:50px;
+}
+#size{
+	background:purple;
+}
+#symbol{
+	background:blue;
+}
+#difficulty{
+	background:pink;
+}
+#page{
+	width:440px;
+	height:600px;
+	background:pink;
+	overflow:hidden;
+}
+#page div{
+	width:400px;
+	height:530px;
+	opacity:0.7;
+	padding-top:50px;
+	padding:70px 20px 0 20px;
+}
+#page *{
+	margin:0 auto 0 auto;
+	width:100%;
+	text-align:center;
+}
+#page div div{padding-top:0px;}
+#page #start{
+	background:red;
+	margin-top:-0px;
+}
+#page #gaming{
+	background:green;
+}
+#page #suspend{
+	background:blue;
+}
+#page #end{
+	background:purple;
+}
+#page #gaming div{
+	width:95px;
+	height:95px;
+	background:black;
+	float:left;
+	margin-right:5px;
+	margin-bottom:5px;
+	padding:0;
+	font-size:50px;
+	color:white;
+	cursor:pointer;
+	line-height:95px;
+}
