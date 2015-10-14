@@ -1,10 +1,11 @@
 body{
-	width:350px;
+	width:360px;
 	height:450px;
-	margin:0;
+	margin:0 0;
+	overflow:hidden;
 }
 #nav{
-	width:350px;
+	width:360px;
 	height:50px;
 	background:red;
 	z-index:100;
@@ -39,11 +40,11 @@ body{
 }
 #share{
 	background:black;
-	left:150px;
+	left:110px;
 	position:relative;
 }
 #menu div{
-	width:350px;
+	width:360px;
 	height:50px;
 }
 #menu div div{
@@ -66,13 +67,13 @@ body{
 	background:pink;
 }
 #page{
-	width:350px;
+	width:360px;
 	height:450px;
 	background:pink;
 	overflow:hidden;
 }
 #page div{
-	width:350px;
+	width:360px;
 	height:380px;
 	opacity:0.7;
 	padding:70px 0px 0 0px;
@@ -98,8 +99,8 @@ body{
 	background:purple;
 }
 #page #gaming div{
-	width:77.5px;
-	height:77.5px;
+	width:80px;
+	height:80px;
 	background:black;
 	float:left;
 	margin-right:5px;
