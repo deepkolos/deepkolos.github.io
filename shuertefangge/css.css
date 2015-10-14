@@ -1,9 +1,10 @@
 body{
-	width:400px;
+	width:350px;
+	height:450px;
 	margin:0;
 }
 #nav{
-	width:400px;
+	width:350px;
 	height:50px;
 	background:red;
 	z-index:100;
@@ -42,7 +43,7 @@ body{
 	position:relative;
 }
 #menu div{
-	width:400px;
+	width:350px;
 	height:50px;
 }
 #menu div div{
@@ -65,14 +66,14 @@ body{
 	background:pink;
 }
 #page{
-	width:400px;
-	height:500px;
+	width:350px;
+	height:450px;
 	background:pink;
 	overflow:hidden;
 }
 #page div{
-	width:400px;
-	height:430px;
+	width:350px;
+	height:380px;
 	opacity:0.7;
 	padding:70px 0px 0 0px;
 }
@@ -88,7 +89,7 @@ body{
 }
 #page #gaming{
 	background:green;
-	padding:70px 0px 0 22px;
+	padding:70px 0px 0 10px;
 }
 #page #suspend{
 	background:blue;
@@ -97,15 +98,15 @@ body{
 	background:purple;
 }
 #page #gaming div{
-	width:85px;
-	height:85px;
+	width:77.5px;
+	height:77.5px;
 	background:black;
 	float:left;
 	margin-right:5px;
 	margin-bottom:5px;
 	padding:0;
-	font-size:50px;
+	font-size:40px;
 	color:white;
 	cursor:pointer;
-	line-height:95px;
+	line-height:77.5px;
 }
