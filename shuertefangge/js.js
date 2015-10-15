@@ -54,6 +54,59 @@ restartButton.onmousedown = function (){
 shareButton.onmousedown = function (){
 	
 }
+//设置shape
+id("shape").getElementsByTagName("div")[1].onmousedown = function (){
+	id("shape").getElementsByClassName("active")[0].style.marginLeft = (1-1)*50+"px" ;
+	shape = 1 ;
+}
+id("shape").getElementsByTagName("div")[2].onmousedown = function (){
+	id("shape").getElementsByClassName("active")[0].style.marginLeft = (2-1)*50+"px" ;
+	shape = 2 ;
+}
+id("shape").getElementsByTagName("div")[3].onmousedown = function (){
+	id("shape").getElementsByClassName("active")[0].style.marginLeft = (3-1)*50+"px" ;
+	shape = 3 ;
+}
+id("shape").getElementsByTagName("div")[4].onmousedown = function (){
+	id("shape").getElementsByClassName("active")[0].style.marginLeft = (4-1)*50+"px" ;
+	shape = 4 ;
+}
+//size
+id("size").getElementsByTagName("div")[1].onmousedown = function (){
+	id("size").getElementsByClassName("active")[0].style.marginLeft = (1-1)*50+"px" ;
+	size = 4 ;
+}
+id("size").getElementsByTagName("div")[2].onmousedown = function (){
+	id("size").getElementsByClassName("active")[0].style.marginLeft = (2-1)*50+"px" ;
+	size = 5 ;
+}
+id("size").getElementsByTagName("div")[3].onmousedown = function (){
+	id("size").getElementsByClassName("active")[0].style.marginLeft = (3-1)*50+"px" ;
+	size = 6 ;
+}
+id("size").getElementsByTagName("div")[4].onmousedown = function (){
+	id("size").getElementsByClassName("active")[0].style.marginLeft = (4-1)*50+"px" ;
+	size = 7 ;
+}
+//symbol
+id("symbol").getElementsByTagName("div")[1].onmousedown = function (){
+	id("symbol").getElementsByClassName("active")[0].style.marginLeft = (1-1)*50+"px" ;
+	symbol = 1 ;
+}
+id("symbol").getElementsByTagName("div")[2].onmousedown = function (){
+	id("symbol").getElementsByClassName("active")[0].style.marginLeft = (2-1)*50+"px" ;
+	symbol = 2 ;
+}
+//difficulty
+id("difficulty").getElementsByTagName("div")[1].onmousedown = function (){
+	id("difficulty").getElementsByClassName("active")[0].style.marginLeft = (1-1)*50+"px" ;
+	difficulty = 1 ;
+}
+id("difficulty").getElementsByTagName("div")[2].onmousedown = function (){
+	id("difficulty").getElementsByClassName("active")[0].style.marginLeft = (2-1)*50+"px" ;
+	difficulty = 2 ;
+}
+//alert(id("menu").getElementsByTagName("div").length)
 //游戏开始
 goGame.onmousedown = function (){
 	gaming = 1 ;
@@ -85,9 +138,11 @@ function combineTable(){
 function createTable(){
 	gameBox.innerHTML = "";
 	var button = "";
+	var littleboxWidth = (360-17-5*size)/size ;
 	for (var i = 0 ; i < size*size ; i++){
-		button += "<div id='"+list_ramdon[i]+"' onmousedown='checkClick("+list_ramdon[i]+")'>"+list_ramdon[i]+"</div>"
-		
+		button += "<div id='"+list_ramdon[i]+"' onmousedown='checkClick("+list_ramdon[i]+")'" 
+		button += " style='width:"+littleboxWidth+"px;height:"+littleboxWidth+"px;line-height:"+littleboxWidth+"px;font-size:"+littleboxWidth/1.6+"px;'>"
+		button += list_ramdon[i]+"</div>"
 	}
 	gameBox.innerHTML = button ;
 }
@@ -107,6 +162,7 @@ function checkClick(i){
 		used_timeBox.innerHTML = (stopTime-startTime)/1000+"s"
 	}
 }
+
 
 document.onselectstart = function (){return false}
 //basic packing

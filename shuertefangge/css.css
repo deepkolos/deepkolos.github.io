@@ -53,18 +53,25 @@ body{
 	
 }
 #shape{
-	background:red;
+	/background:red;
 	margin-top:50px;
 }
 #size{
-	background:purple;
+	/background:purple;
 }
 #symbol{
-	background:blue;
+	/background:blue;
 }
 #difficulty{
-	background:pink;
+	/background:pink;
 }
+.active{
+	position:absolute;
+	background:green;
+	margin-left:0px;
+	z-index:300;
+}
+
 #page{
 	width:360px;
 	height:490px;
@@ -98,6 +105,7 @@ body{
 	background:purple;
 }
 #page #gaming div{
+	color:white;
 	width:80px;
 	height:80px;
 	background:black;
@@ -108,5 +116,5 @@ body{
 	font-size:40px;
 	color:white;
 	cursor:pointer;
-	line-height:77.5px;
+	line-height:80px;
 }
