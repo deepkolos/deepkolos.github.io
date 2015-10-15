@@ -28,12 +28,12 @@ var startTime,stopTime;
 
 //setting of event 
 //菜单显示
-menuButton.onclick = function (){
+menuButton.onmousedown = function (){
 	toggleMenu = toggleMenu*-1 ;
 	if (toggleMenu == 1) nav.style.overflow = "visible";
 	if (toggleMenu == -1) nav.style.overflow = "hidden";
 }
-page.onclick = function (){
+page.onmousedown = function (){
 	if (toggleMenu == 1){
 		nav.style.overflow = "hidden";
 		toggleMenu = toggleMenu*-1 ;
@@ -41,21 +41,21 @@ page.onclick = function (){
 	
 }
 //功能按钮
-rangeButton.onclick = function (){
+rangeButton.onmousedown = function (){
 	startBox.style.marginTop = pageBox.suspend;
 }
-pkButton.onclick = function (){
+pkButton.onmousedown = function (){
 	startBox.style.marginTop = pageBox.end;
 }
-restartButton.onclick = function (){
+restartButton.onmousedown = function (){
 	startBox.style.marginTop = pageBox.start;
 	
 }
-shareButton.onclick = function (){
+shareButton.onmousedown = function (){
 	
 }
 //游戏开始
-goGame.onclick = function (){
+goGame.onmousedown = function (){
 	gaming = 1 ;
 	startBox.style.marginTop = pageBox.gaming;
 	ramdomList();
@@ -86,7 +86,7 @@ function createTable(){
 	gameBox.innerHTML = "";
 	var button = "";
 	for (var i = 0 ; i < size*size ; i++){
-		button += "<div id='"+list_ramdon[i]+"' onclick='checkClick("+list_ramdon[i]+")'>"+list_ramdon[i]+"</div>"
+		button += "<div id='"+list_ramdon[i]+"' onmousedown='checkClick("+list_ramdon[i]+")'>"+list_ramdon[i]+"</div>"
 		
 	}
 	gameBox.innerHTML = button ;
