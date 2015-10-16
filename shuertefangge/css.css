@@ -6,7 +6,7 @@ body{
 #nav{
 	width:360px;
 	height:50px;
-	background:red;
+	/background:red;
 	z-index:100;
 	margin:0 auto;
 	position:fixed;
@@ -16,7 +16,7 @@ body{
 #nav div{
 	width:50px;
 	height:50px;
-	opacity:0.7;
+	/opacity:0.7;
 	float:left;
 }
 #menu{
@@ -43,45 +43,63 @@ body{
 	position:relative;
 }
 #menu div{
-	width:360px;
+	/width:200px;
 	height:50px;
 }
 #menu div div{
 	width:50px;
 	height:50px;
-	background:orange;
-	
+	text-align:center;
+	line-height:50px;
+	/background:orange;
 }
 #shape{
-	/background:red;
+	width:200px !important ;
+	height:0px !important ;
+	background:red;
 	margin-top:50px;
+	overflow:hidden;
 }
+#shape .active{display:none;}
 #size{
-	/background:purple;
+	width:200px !important ;
+	background:white;
 }
 #symbol{
-	/background:blue;
+	width:100px !important ;
+	background:white;
 }
 #difficulty{
-	/background:pink;
+	width:100px !important ;
+	background:white;
+}
+#size .active{
+	/background:white;
+}
+#symbol .active{
+	/background:white;
+}
+#difficulty .active{
+	/background:white;
 }
 .active{
+	border-bottom:5px solid black ;
 	position:absolute;
-	background:green;
 	margin-left:0px;
+	margin-top:-5px;
 	z-index:300;
 }
 
 #page{
 	width:360px;
 	height:490px;
-	background:pink;
+	/background:pink;
 	overflow:hidden;
 }
 #page div{
 	width:360px;
 	height:420px;
-	opacity:0.7;
+	/opacity:0.7;
 	padding:70px 0px 0 0px;
 }
 #page *{
@@ -91,30 +109,40 @@ body{
 }
 #page div div{padding-top:0px;}
 #page #start{
-	background:red;
+	/background:red;
 	margin-top:-0px;
 }
 #page #gaming{
-	background:green;
+	/background:green;
 	padding:70px 0px 0 10px;
 }
 #page #suspend{
-	background:blue;
+	/background:blue;
+}
+#page #suspend *{
+	color:black;
 }
 #page #end{
-	background:purple;
+	/background:purple;
+}
+#page #end .restart{
+	color:black;
+	/width:150px;
+	height:60px;
+	font-size:60px;
+	/background:green;
+	line-height:60px;
 }
 #page #gaming div{
-	color:white;
+	color:black;
 	width:80px;
 	height:80px;
-	background:black;
+	/background:black;
 	float:left;
 	margin-right:5px;
 	margin-bottom:5px;
 	padding:0;
 	font-size:40px;
-	color:white;
 	cursor:pointer;
 	line-height:80px;
 }

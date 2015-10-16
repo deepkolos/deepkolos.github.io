@@ -78,6 +78,9 @@ restartButton.onmousedown = function (){
 	startBox.style.marginTop = pageBox.start;
 	
 }
+document.getElementsByClassName("restart")[0].onmousedown = function (){
+	startBox.style.marginTop = pageBox.start;
+}
 shareButton.onmousedown = function (){
 	
 }
@@ -185,13 +188,15 @@ function createTable(){
 
 //Gaming
 function checkClick(i){
+	id("button"+i).style.background = "gray" ;
+	var t = setTimeout(function(){id("button"+i).style.background = "none" ;},100)
 	if (i == gaming || i.toString() == LetterTable[gaming-1]){
 		//alert("yes");
 		gaming ++ ;
 		if (difficulty == "easy") document.getElementById("button"+i).style.background = "red" ;
 	}else{
 		//  ?
-		alert("not ok"+i);
+		//alert("not ok"+i);
 	}
 	if (gaming == size*size+1){
 		var getDate = new Date() ;
@@ -206,4 +211,7 @@ document.onselectstart = function (){return false}
 //basic packing
 function id(id){
 	return document.getElementById(id);
+}
+function domClass(domClass){
+	return document.getElementsByName(domClass);
 }
