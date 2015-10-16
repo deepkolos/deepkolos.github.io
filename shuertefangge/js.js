@@ -18,6 +18,33 @@ var page = id("page");
 var toggleMenu = -1;
 var list = new Array();
 var list_ramdon = new Array();
+var LetterTable = new Array();
+LetterTable[0] = "A" ;
+LetterTable[1] = "B" ;
+LetterTable[2] = "C" ;
+LetterTable[3] = "D" ;
+LetterTable[4] = "E" ;
+LetterTable[5] = "F" ;
+LetterTable[6] = "G" ;
+LetterTable[7] = "H" ;
+LetterTable[8] = "I" ;
+LetterTable[9] = "J" ;
+LetterTable[10] = "K" ;
+LetterTable[11] = "L" ;
+LetterTable[12] = "M" ;
+LetterTable[13] = "N" ;
+LetterTable[14] = "O" ;
+LetterTable[15] = "P" ;
+LetterTable[16] = "Q" ;
+LetterTable[17] = "R" ;
+LetterTable[18] = "S" ;
+LetterTable[19] = "T" ;
+LetterTable[20] = "U" ;
+LetterTable[21] = "V" ;
+LetterTable[22] = "W" ;
+LetterTable[23] = "Y" ;
+LetterTable[24] = "X" ;
+LetterTable[25] = "Z" ;
 //default setting
 var shape = "square" ;
 var size = 4 ;
@@ -73,38 +100,45 @@ id("shape").getElementsByTagName("div")[4].onmousedown = function (){
 }
 //size
 id("size").getElementsByTagName("div")[1].onmousedown = function (){
-	id("size").getElementsByClassName("active")[0].style.marginLeft = (1-1)*50+"px" ;
 	size = 4 ;
+	id("size").getElementsByClassName("active")[0].style.marginLeft = (1-1)*50+"px" ;
 }
 id("size").getElementsByTagName("div")[2].onmousedown = function (){
-	id("size").getElementsByClassName("active")[0].style.marginLeft = (2-1)*50+"px" ;
 	size = 5 ;
+	id("size").getElementsByClassName("active")[0].style.marginLeft = (2-1)*50+"px" ;
 }
 id("size").getElementsByTagName("div")[3].onmousedown = function (){
-	id("size").getElementsByClassName("active")[0].style.marginLeft = (3-1)*50+"px" ;
-	size = 6 ;
+	if (!(size <= 5 && symbol == "letter")){
+		id("size").getElementsByClassName("active")[0].style.marginLeft = (3-1)*50+"px" ;
+		size = 6 ;
+	}
 }
 id("size").getElementsByTagName("div")[4].onmousedown = function (){
-	id("size").getElementsByClassName("active")[0].style.marginLeft = (4-1)*50+"px" ;
-	size = 7 ;
+	if (!(size <= 5 && symbol == "letter")){
+		id("size").getElementsByClassName("active")[0].style.marginLeft = (4-1)*50+"px" ;
+		size = 7 ;
+	}
 }
+
 //symbol
 id("symbol").getElementsByTagName("div")[1].onmousedown = function (){
 	id("symbol").getElementsByClassName("active")[0].style.marginLeft = (1-1)*50+"px" ;
-	symbol = 1 ;
+	symbol = "number" ;
 }
 id("symbol").getElementsByTagName("div")[2].onmousedown = function (){
+	if(size <= 5){
 	id("symbol").getElementsByClassName("active")[0].style.marginLeft = (2-1)*50+"px" ;
-	symbol = 2 ;
+	symbol = "letter" ;
+	}
 }
 //difficulty
 id("difficulty").getElementsByTagName("div")[1].onmousedown = function (){
 	id("difficulty").getElementsByClassName("active")[0].style.marginLeft = (1-1)*50+"px" ;
-	difficulty = 1 ;
+	difficulty = "normal" ;
 }
 id("difficulty").getElementsByTagName("div")[2].onmousedown = function (){
 	id("difficulty").getElementsByClassName("active")[0].style.marginLeft = (2-1)*50+"px" ;
-	difficulty = 2 ;
+	difficulty = "easy" ;
 }
 //alert(id("menu").getElementsByTagName("div").length)
 //游戏开始
@@ -140,20 +174,24 @@ function createTable(){
 	var button = "";
 	var littleboxWidth = (360-17-5*size)/size ;
 	for (var i = 0 ; i < size*size ; i++){
-		button += "<div id='"+list_ramdon[i]+"' onmousedown='checkClick("+list_ramdon[i]+")'" 
+	if (symbol == "number"){ var showsymbol = list_ramdon[i] ;}
+	if (symbol == "letter"){ var showsymbol = LetterTable[list_ramdon[i]-1] ;}
+		button += "<div id='button"+list_ramdon[i]+"' onmousedown='checkClick("+list_ramdon[i]+")'" 
 		button += " style='width:"+littleboxWidth+"px;height:"+littleboxWidth+"px;line-height:"+littleboxWidth+"px;font-size:"+littleboxWidth/1.6+"px;'>"
-		button += list_ramdon[i]+"</div>"
+		button += showsymbol+"</div>"
 	}
 	gameBox.innerHTML = button ;
 }
 
 //Gaming
 function checkClick(i){
-	if (i == gaming){
+	if (i == gaming || i.toString() == LetterTable[gaming-1]){
 		//alert("yes");
-		gaming++
+		gaming ++ ;
+		if (difficulty == "easy") document.getElementById("button"+i).style.background = "red" ;
 	}else{
-		//alert("not ok")
+		//  ?
+		alert("not ok"+i);
 	}
 	if (gaming == size*size+1){
 		var getDate = new Date() ;
