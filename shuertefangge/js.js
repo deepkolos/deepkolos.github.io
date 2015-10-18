@@ -16,6 +16,7 @@ var pageBox ={
 }
 var page = id("page");
 var toggleMenu = -1;
+var tooglePage = 0 ;
 var list = new Array();
 var list_ramdon = new Array();
 var LetterTable = new Array();
@@ -57,29 +58,72 @@ var startTime,stopTime;
 //菜单显示
 menuButton.onmousedown = function (){
 	toggleMenu = toggleMenu*-1 ;
-	if (toggleMenu == 1) nav.style.overflow = "visible";
-	if (toggleMenu == -1) nav.style.overflow = "hidden";
+	if (toggleMenu == 1){
+		//nav.style.overflow = "visible";
+		menuButton.getElementsByTagName("div")[0].className = "menuButton_toggle_top" ;
+		menuButton.getElementsByTagName("div")[2].className = "menuButton_toggle_bottom" ;
+		id("shape").style.transition = "all .2s ease-out .0s" ;
+		id("size").style.transition = "all .2s ease-out .1s" ;
+		id("symbol").style.transition = "all .2s ease-out .2s" ;
+		id("difficulty").style.transition = "all .2s ease-out .3s" ;
+		id("shape").style.marginLeft ="0px" ;
+		id("size").style.marginLeft = "0px" ;
+		id("symbol").style.marginLeft = "0px" ;
+		id("difficulty").style.marginLeft = "0px" ;
+	}
+	if (toggleMenu == -1){
+		//var t = setTimeout(function (){nav.style.overflow = "hidden";},400);
+		menuButton.getElementsByTagName("div")[0].className = "" ;
+		menuButton.getElementsByTagName("div")[2].className = "" ;
+		id("shape").style.transition = "all .2s ease-out .3s" ;
+		id("size").style.transition = "all .2s ease-out .2s" ;
+		id("symbol").style.transition = "all .2s ease-out .1s" ;
+		id("difficulty").style.transition = "all .2s ease-out .0s" ;
+		id("shape").style.marginLeft = "-200px" ;
+		id("size").style.marginLeft = "-200px" ;
+		id("symbol").style.marginLeft = "-100px" ;
+		id("difficulty").style.marginLeft = "-100px" ;
+	}
+	startBox.style.marginTop = pageBox.start;
 }
 page.onmousedown = function (){
 	if (toggleMenu == 1){
-		nav.style.overflow = "hidden";
+		//nav.style.overflow = "hidden";
+		menuButton.getElementsByTagName("div")[0].className = "" ;
+		menuButton.getElementsByTagName("div")[2].className = "" ;
+		id("shape").style.transition = "all .2s ease-out .3s" ;
+		id("size").style.transition = "all .2s ease-out .2s" ;
+		id("symbol").style.transition = "all .2s ease-out .1s" ;
+		id("difficulty").style.transition = "all .2s ease-out .0s" ;
+		id("shape").style.marginLeft = "-200px" ;
+		id("size").style.marginLeft = "-200px" ;
+		id("symbol").style.marginLeft = "-100px" ;
+		id("difficulty").style.marginLeft = "-100px" ;
 		toggleMenu = toggleMenu*-1 ;
 	}
 	
 }
 //功能按钮
+/*
 rangeButton.onmousedown = function (){
 	startBox.style.marginTop = pageBox.suspend;
+	
 }
 pkButton.onmousedown = function (){
 	startBox.style.marginTop = pageBox.end;
 }
+*/
 restartButton.onmousedown = function (){
 	startBox.style.marginTop = pageBox.start;
-	
+	restartButton.style.transform = "rotate(360deg)" ;
+	restartButton.style.transition = "all .2s ease-in .0s" ;
+	var t = setTimeout(function (){restartButton.style.transform = "rotate(0deg)" ;restartButton.style.transition = "all .0s ease-in .0s" ;},220);
 }
 document.getElementsByClassName("restart")[0].onmousedown = function (){
 	startBox.style.marginTop = pageBox.start;
+	restartButton.style.transform = "rotate(360deg)" ;
+	restartButton.style.transition = "all .2s ease-in .0s" ;
+	var t = setTimeout(function (){restartButton.style.transform = "rotate(0deg)" ;restartButton.style.transition = "all .0s ease-in .0s" ;},220);
 }
 shareButton.onmousedown = function (){
 	
@@ -189,7 +233,7 @@ function createTable(){
 //Gaming
 function checkClick(i){
 	id("button"+i).style.background = "gray" ;
-	var t = setTimeout(function(){id("button"+i).style.background = "none" ;},100)
+	if (difficulty !== "easy"){var t = setTimeout(function(){id("button"+i).style.background = "none" ;},100)}
 	if (i == gaming || i.toString() == LetterTable[gaming-1]){
 		//alert("yes");
 		gaming ++ ;
