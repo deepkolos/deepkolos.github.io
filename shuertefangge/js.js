@@ -126,7 +126,7 @@ document.getElementsByClassName("restart")[0].onmousedown = function (){
 	var t = setTimeout(function (){restartButton.style.transform = "rotate(0deg)" ;restartButton.style.transition = "all .0s ease-in .0s" ;},220);
 }
 shareButton.onmousedown = function (){
-	
+	startBox.style.marginTop = pageBox.end;
 }
 //设置shape
 id("shape").getElementsByTagName("div")[1].onmousedown = function (){

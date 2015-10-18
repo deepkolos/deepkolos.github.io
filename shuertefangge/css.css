@@ -74,14 +74,14 @@ body{
 	border-radius:35px;
 }
 #restart > div > div{
-	width:28px;
-	height:28px;
+	width:27px;
+	height:27px;
 	background:white;
 	margin:3.5px 3.5px;
 	border-radius:25px;
 }
 #restart > div > div >div{
-	width:14px;
+	width:15px;
 	height:10px;
 	background:white;
 	margin:7px 17.5px;
