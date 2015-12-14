@@ -1,4 +1,4 @@
-var cellNumWidth = 8 ;
+ï»¿var cellNumWidth = 8 ;
 var cellNumHeight = 11 ;
 var cellNum = cellNumHeight * cellNumWidth ;
 var eggs = Math.floor( cellNum / 4.8 );
@@ -6,9 +6,9 @@ var eggsUncovered = 0;
 var list_Eggs = new Array();
 var list_Empty = new Array();
 var list_Uncovered = new Array();
-var list_NumInCell = new Array(new Array());//ÈçºÎÉùÃ÷Ò»¸ö¶şÎ¬Êı×é£¿£¿
+var list_NumInCell = new Array(new Array());//å¦‚ä½•å£°æ˜ä¸€ä¸ªäºŒç»´æ•°ç»„ï¼Ÿï¼Ÿ
 
-//Éú³ÉµØÍ¼
+//ç”Ÿæˆåœ°å›¾
 var cells = "";
 var gameBox = $("gameBox");
 for ( var i = 0 ; i < cellNumHeight ; i++){
@@ -19,7 +19,7 @@ for ( var i = 0 ; i < cellNumHeight ; i++){
 }
 gameBox.innerHTML = cells ; 
 
-//Éú³Éeggs
+//ç”Ÿæˆeggs
 for ( var i = 1 ; i <= eggs ; i++){
 	var x = getRandom(cellNumWidth);
 	var y = getRandom(cellNumHeight);
@@ -31,7 +31,7 @@ for ( var i = 1 ; i <= eggs ; i++){
 	};
 }
 
-//Éú³ÉÊı×Ö
+//ç”Ÿæˆæ•°å­—
 for ( var i = 0 ; i < cellNumHeight ; i++){
 	for( var j = 0 ; j < cellNumWidth ; j++){
 		var count = eggsAround(j,i);
@@ -39,20 +39,20 @@ for ( var i = 0 ; i < cellNumHeight ; i++){
 			list_Empty[list_Empty.length] = Array(j,i);
 	}
 }
-//ÅĞ¶ÏÊÇ·ñÊÇegg
+//åˆ¤æ–­æ˜¯å¦æ˜¯egg
 function isEgg(x,y,where){
 	return isInArray( x , y , list_Eggs , where );
 }
-//ÅĞ¶ÏÊÇ·ñÊÇ¿Õ°×
+//åˆ¤æ–­æ˜¯å¦æ˜¯ç©ºç™½
 function isEmpty(x,y,where){
 	return isInArray( x , y , list_Empty ,where);
 }
-//ÅĞ¶ÏÊÇ·ñÊÇÒÑ±»½Ò¿ª
+//åˆ¤æ–­æ˜¯å¦æ˜¯å·²è¢«æ­å¼€
 function isUncovered(x,y,where){
 	return isInArray( x , y , list_Uncovered , where );
 }
 
-//ÖÜÎ§egg¸öÊı
+//å‘¨å›´eggä¸ªæ•°
 function eggsAround(j,i){
 	var count = 0;
 		for(var l = 0 ; l <= list_Eggs.length-1 ; l++){
@@ -68,15 +68,15 @@ function eggsAround(j,i){
 		return count;
 }
 
-//ÊÂ¼ş´¦Àí
+//äº‹ä»¶å¤„ç†
 function uncover(x,y){
 	var cell = $("cell-"+x+"-"+y);
-	//Èç¹ûµã¿ªµÄ´ÓÊÇÎ´µã¿ªµÄ
+	//å¦‚æœç‚¹å¼€çš„ä»æ˜¯æœªç‚¹å¼€çš„
 	if( !isUncovered( x , y ) ){
 		list_Uncovered[list_Uncovered.length] = Array( x , y );
 		if( eggsAround(x,y) != 0 )
 			cell.innerHTML = eggsAround(x,y);
-		//Èç¹ûµã¿ªµÄ´ÓÊÇÎ´µã¿ªµÄ,²¢ÇÒÊÇegg
+		//å¦‚æœç‚¹å¼€çš„ä»æ˜¯æœªç‚¹å¼€çš„,å¹¶ä¸”æ˜¯egg
 	if(isEgg(x,y)){
 		CSS( cell , EggDivAfter );
 		if(eggsUncovered == eggs-1)
@@ -84,9 +84,9 @@ function uncover(x,y){
 		else
 			eggsUncovered++;
 		eggsEvent(isEgg(x,y,true));
-		//Èç¹ûµã¿ªµÄ´ÓÊÇÎ´µã¿ªµÄ,²¢ÇÒÊÇ¿Õ¸ñ
+		//å¦‚æœç‚¹å¼€çš„ä»æ˜¯æœªç‚¹å¼€çš„,å¹¶ä¸”æ˜¯ç©ºæ ¼
 	}else if( isEmpty( x , y ) == 1 || eggsAround(x,y) == 1){
-		//ÕÒ³öËùÓĞĞèÒª´¦ÀíµÄ¸½½üµÄ¿Õ¸ñ
+		//æ‰¾å‡ºæ‰€æœ‰éœ€è¦å¤„ç†çš„é™„è¿‘çš„ç©ºæ ¼
 		var list_needToHandle = new Array();
 			list_needToHandle[0] = Array( x , y );
 		for (var i = 0 ; i < list_needToHandle.length ; i++ ){
@@ -113,11 +113,11 @@ function uncover(x,y){
 		
 		handleAround(x,y,needToUncover);
 		
-		//style ÉèÖÃ
+		//style è®¾ç½®
 		cell.style.background = "#F0F8FF";
 
 		}
-		//Èç¹ûµã¿ªµÄ´ÓÊÇÎ´µã¿ªµÄ,ÊÇÆäËû
+		//å¦‚æœç‚¹å¼€çš„ä»æ˜¯æœªç‚¹å¼€çš„,æ˜¯å…¶ä»–
 	}else {	
 	cell.style.background = "#F0F8FF";
 	}
@@ -131,37 +131,37 @@ function uncover(x,y){
 function eggsEvent(thisEgg){
 	gotoPage(thisEgg);
 	switch (thisEgg){
-		case 0: notify("Ğ¡×÷Æ·£¬ºúÂÒ×éºÏ£¬ÎğÍÂ²Û"); notify("ËäÈ»»áÆøËÀÈË");break;
-		case 1: notify("ÕÒÒ»ÕÅMissÌÀµÄÕÕÆ¬¶¼ºÜÄÑ°¡");break;
-		case 2: notify("ÕâÕÅÓ¦¸Ã´ó¶àÊıÈËÃ»¼û¹ı°É");break;
-		case 3: notify("Ã»¼û¹ı°¡Ç¿Èç´ËÑÏËà");break;
-		case 4: notify("°¡²¨£¬°¡·æÊÇ¿ªĞÄ¹û");break;
-		case 5: notify("Î°¸çÊ±Ê±¿Ì¿ÌÂúÃæ´º·ç");break;
+		case 0: notify("å°ä½œå“ï¼Œèƒ¡ä¹±ç»„åˆï¼Œå‹¿åæ§½"); notify("è™½ç„¶ä¼šæ°”æ­»äºº");break;
+		case 1: notify("æ‰¾ä¸€å¼ Missæ±¤çš„ç…§ç‰‡éƒ½å¾ˆéš¾å•Š");break;
+		case 2: notify("è¿™å¼ åº”è¯¥å¤§å¤šæ•°äººæ²¡è§è¿‡å§");break;
+		case 3: notify("æ²¡è§è¿‡å•Šå¼ºå¦‚æ­¤ä¸¥è‚ƒ");break;
+		case 4: notify("å•Šæ³¢ï¼Œå•Šé”‹æ˜¯å¼€å¿ƒæœ");break;
+		case 5: notify("ä¼Ÿå“¥æ—¶æ—¶åˆ»åˆ»æ»¡é¢æ˜¥é£");break;
 		case 6: notify("Big water Fish");break;
-		case 7: notify("ºÇºÇ");break;
-		case 8: notify("ÓĞºÜ¶àÈËÏëÒªÕâÕÅ");break;
-		case 9: notify("±êÖ¾");break;
-		case 10: notify("Â¬º£");break;
-		case 11: notify("°¡Éß");break;
-		case 12: notify("ÕâÕÅÓ¦¸Ã´ó¶àÊıÈËÃ»¼û¹ı°É");break;
-		case 13: notify("ßÙÀößÙÀößÙÀö");break;
-		case 14: notify("´óÍ·");break;
-		case 15: notify("ÆäÊµÕâÊÇÒ»¸ö¸ßÖĞÏàÆ¬¼¯ºÏ");notify("Ò»¹²¾«Ñ¡ÁË18ÕÅ");notify("Ö»ÊÇºÍÉ¨À×½áºÏÆğÀ´µÄEggSweeper");notify("Õâ¾ÍÊÇ±³ºóÇ¿×³µÄÄĞÈË");break;
-		case 16: notify("ÓÎÉú");break;
-		case 17: notify("ÓÃ°¡ÌÏĞÔ¸ĞµÄÎÇ±ğ");notify("ÖÂÎÒÃÇÊÅÈ¥µÄ¸ßÖĞ£¬bye");break;
+		case 7: notify("å‘µå‘µ");break;
+		case 8: notify("æœ‰å¾ˆå¤šäººæƒ³è¦è¿™å¼ ");break;
+		case 9: notify("æ ‡å¿—");break;
+		case 10: notify("å¢æµ·");break;
+		case 11: notify("å•Šè›‡");break;
+		case 12: notify("è¿™å¼ åº”è¯¥å¤§å¤šæ•°äººæ²¡è§è¿‡å§");break;
+		case 13: notify("å“”ä¸½å“”ä¸½å“”ä¸½");break;
+		case 14: notify("å¤§å¤´");break;
+		case 15: notify("å…¶å®è¿™æ˜¯ä¸€ä¸ªé«˜ä¸­ç›¸ç‰‡é›†åˆ");notify("ä¸€å…±ç²¾é€‰äº†18å¼ ");notify("åªæ˜¯å’Œæ‰«é›·ç»“åˆèµ·æ¥çš„EggSweeper");notify("è¿™å°±æ˜¯èƒŒåå¼ºå£®çš„ç”·äºº");break;
+		case 16: notify("æ¸¸ç”Ÿ");break;
+		case 17: notify("ç”¨å•Šæ»”æ€§æ„Ÿçš„å»åˆ«");notify("è‡´æˆ‘ä»¬é€å»çš„é«˜ä¸­ï¼Œbye");break;
 		case "bye":break;
 		
 	}
 }
 
-//Í¨Öªplan Ìí¼ÓÈ·ÈÏµÄÌáÊ¾´°¿Ú£¬µ«ÊÇ²»Ê¹ÓÃÍ¬Ò»¸öº¯ÊıÊµÏÖÁË£¬
+//é€šçŸ¥plan æ·»åŠ ç¡®è®¤çš„æç¤ºçª—å£ï¼Œä½†æ˜¯ä¸ä½¿ç”¨åŒä¸€ä¸ªå‡½æ•°å®ç°äº†ï¼Œ
 var notification = $("notification");
 var list_notification_g ;
 function notifyContainer(){
 	var list_notification = new Array();
 	var isShowing = false ;
 	var isDealing = 0 ;
-	function send(content){//Ïàµ±ÓÚÕâ¸ö±ä³É³ÌĞòµÄÈë¿Ú£¬²ÎÊı¶¼´ÓÕâÀï½øÈ¥£¿£¿£¿
+	function send(content){//ç›¸å½“äºè¿™ä¸ªå˜æˆç¨‹åºçš„å…¥å£ï¼Œå‚æ•°éƒ½ä»è¿™é‡Œè¿›å»ï¼Ÿï¼Ÿï¼Ÿ
 		list_notification[list_notification.length] = content;
 		list_notification_g = list_notification;
 		if( !isShowing )
@@ -175,7 +175,7 @@ function notifyContainer(){
 		(function (){
 			var isDealingCahe = isDealing;
 			setTimeout(function (){
-				//Í¨ÖªingµÄÑùÊ½
+				//é€šçŸ¥ingçš„æ ·å¼
 				notification.style.zIndex = "20";
 				CSS( notification.getElementsByTagName("div")[isDealingCahe] , notificationDivBefore );
 			},50);
@@ -187,11 +187,11 @@ function notifyContainer(){
 		setTimeout(function (){
 			isShowing = false ;
 			isDealing++;
-			//´¦ÀíÍ¨Öªed
+			//å¤„ç†é€šçŸ¥ed
 			(function (){
 			var isDealingCahe1 = isDealingCahe;
 			setTimeout(function (){
-				//Í¨ÖªedµÄÑùÊ½
+				//é€šçŸ¥edçš„æ ·å¼
 				CSS( notification.getElementsByTagName("div")[isDealingCahe1] , notificationDivAfter );
 			},50);
 			})();
@@ -211,8 +211,8 @@ function notifyContainer(){
 	return send;
 }
 var notify = notifyContainer();
-notify("ÕâÊÇÉ¨À×µÄºúÂÒ×éºÏ°æ--ĞÂÖĞ×¨°æ");
-notify("ÓĞ¾ªÏ²Å¶");
+notify("è¿™æ˜¯æ‰«é›·çš„èƒ¡ä¹±ç»„åˆç‰ˆ--æ–°ä¸­ä¸“ç‰ˆ");
+notify("æœ‰æƒŠå–œå“¦");
 
 
 //showAttrOf(window);
@@ -224,8 +224,8 @@ function confirmContainer(){
 	var checkBoxYes = document.createElement("div");
 	var checkBoxNo = document.createElement("div");
 	var contentTxtSpan = document.createElement("span");
-	var txtCheckBoxYes = document.createTextNode("ÊÇµÄ");
-	var txtCheckBoxNo = document.createTextNode("²»ÊÇ");
+	var txtCheckBoxYes = document.createTextNode("æ˜¯çš„");
+	var txtCheckBoxNo = document.createTextNode("ä¸æ˜¯");
 	var txtContent = document.createTextNode("");
 	contentTxtSpan.appendChild(txtContent);
 	confirmTemplate.appendChild(contentDiv); 
@@ -321,16 +321,16 @@ confirm("test",(function(){
 	}));
 */
 
-//ÈçºÎ´¦Àí¶à¸öµ¯´°  --Èç¹ûÊÇÖØ¸´¹²ÓÃÒ»¸ö´°¿ÚµÄ»°£¬¾ÍĞèÒª×öÒ»¸öconfirmµÄconten ¼ÇÂ¼£¬Ïñnotifyº¯ÊıÒ»Ñù
-//ÈçºÎÊµÏÖ¿ÉÒÔµÈ´ıÈ·ÈÏ£¬²¢·µ»Ø    ----Ö±½Ó°ÑÏìÓ¦ÊÂ¼ş´«½øÈ¥
-//ÏëĞ´Ò»¸öÃæ¶Ô¹ı³ÌµÄÑÓ³ÙÖ´ĞĞÁ÷--then
+//å¦‚ä½•å¤„ç†å¤šä¸ªå¼¹çª—  --å¦‚æœæ˜¯é‡å¤å…±ç”¨ä¸€ä¸ªçª—å£çš„è¯ï¼Œå°±éœ€è¦åšä¸€ä¸ªconfirmçš„conten è®°å½•ï¼Œåƒnotifyå‡½æ•°ä¸€æ ·
+//å¦‚ä½•å®ç°å¯ä»¥ç­‰å¾…ç¡®è®¤ï¼Œå¹¶è¿”å›    ----ç›´æ¥æŠŠå“åº”äº‹ä»¶ä¼ è¿›å»
+//æƒ³å†™ä¸€ä¸ªé¢å¯¹è¿‡ç¨‹çš„å»¶è¿Ÿæ‰§è¡Œæµ--then
 
-//send("<div>no ok </div>"); //´«ÈëdivÔªËØ¸Ä±äÁËnotificationÏÂµÄdivÊıÁ¿£¬ÒÔ¼°ĞòºÅ£¬ËùÒÔ³öÏÖÖ¸Ïò´íÎó
-							 //¿ªÀ´ÏÖÔÚÖ»ÓĞÔÚÕâÀïÃæ²»Ê¹ÓÃdiv±êÇ©
+//send("<div>no ok </div>"); //ä¼ å…¥divå…ƒç´ æ”¹å˜äº†notificationä¸‹çš„divæ•°é‡ï¼Œä»¥åŠåºå·ï¼Œæ‰€ä»¥å‡ºç°æŒ‡å‘é”™è¯¯
+							 //å¼€æ¥ç°åœ¨åªæœ‰åœ¨è¿™é‡Œé¢ä¸ä½¿ç”¨divæ ‡ç­¾
 //done: disappear delay depenes on string length
 
 
-//ÖĞEggµÄÊÂ¼şÏìÓ¦
+//ä¸­Eggçš„äº‹ä»¶å“åº”
 
 function gotoPage(iEgg){
 	$("pageOfEvent").getElementsByTagName("div")[iEgg].style.zIndex = "10";
@@ -342,7 +342,7 @@ function gotoPage(iEgg){
 	})();
 }
 
-//Ñ­»·°ó¶¨ÊÂ¼ş
+//å¾ªç¯ç»‘å®šäº‹ä»¶
 (function (){
 	for (var i = 0 ; i < $("pageOfEvent").getElementsByTagName("div").length; i++ ){
 		(function (){
@@ -357,14 +357,14 @@ function gotoPage(iEgg){
 	}
 })();
 
-//¶¯»­´¦Àí 
+//åŠ¨ç”»å¤„ç† 
 
-function CSS(elem,setstyle){//ÏÂÒ»²½Ä£·ÂjqueryÖĞ$().CSS({});
+function CSS(elem,setstyle){//ä¸‹ä¸€æ­¥æ¨¡ä»¿jqueryä¸­$().CSS({});
 	for(var p in setstyle){
 		elem.style[p] = setstyle[p];
 	}
 }
-//Òª±ä»¯µÄÑùÊ½±í
+//è¦å˜åŒ–çš„æ ·å¼è¡¨
 var notificationDivBefore = {
 	//background : "red",
 	top : "0px",
@@ -415,14 +415,14 @@ function $(elem){
 	return document.getElementById(elem);
 	
 }
-//ÏÔÊ¾objµÄËùÓĞÊôĞÔ
+//æ˜¾ç¤ºobjçš„æ‰€æœ‰å±æ€§
 function showAttrOf(obj){
 	for(var attr in obj){
 		console.log(attr+":"+obj[attr]);
 	}
 }
 
-//´¦Àíx,y¾àÀëÎª1µÄ·½¸ñ
+//å¤„ç†x,yè·ç¦»ä¸º1çš„æ–¹æ ¼
 function handleAround(x,y,func){
 	func(x-1,y-1);
 	func(x,y-1);
@@ -433,7 +433,7 @@ function handleAround(x,y,func){
 	func(x,y+1);
 	func(x+1,y+1);
 }
-//²éÕÒÊÇ·ñÔÚÄ³¸öÊıÁĞÖĞ´æÔÚ£¬¶şÎ¬
+//æŸ¥æ‰¾æ˜¯å¦åœ¨æŸä¸ªæ•°åˆ—ä¸­å­˜åœ¨ï¼ŒäºŒç»´
 function isInArray( x , y , array , where ){
 	var flag = 0 ;
 	for (var i = 0 ; i <= array.length-1 ; i++)
@@ -442,10 +442,10 @@ function isInArray( x , y , array , where ){
 	return flag;
 }
 
-//Éú³É×Ô¶¨Òå·¶Î§µÄËæ»úÊı 
+//ç”Ÿæˆè‡ªå®šä¹‰èŒƒå›´çš„éšæœºæ•° 
 function getRandom( range_Start , range_Stop){ 
-	//×¢£ºÈç¹ûÏëÉú³É0µ½9µÄËæ»úÊı£¬ĞèÒªĞ´³É0-10£¬ÒòÎªÊ¹ÓÃfloor´¦Àí
-	////£ºÈç¹ûÖ»ÓĞÒ»¸ö²ÎÊı£¬Ä¬ÈÏstartÎª0
+	//æ³¨ï¼šå¦‚æœæƒ³ç”Ÿæˆ0åˆ°9çš„éšæœºæ•°ï¼Œéœ€è¦å†™æˆ0-10ï¼Œå› ä¸ºä½¿ç”¨floorå¤„ç†
+	////ï¼šå¦‚æœåªæœ‰ä¸€ä¸ªå‚æ•°ï¼Œé»˜è®¤startä¸º0
 	if (range_Stop == undefined ){ range_Stop = range_Start ; range_Start = 0 ; }
 	return Math.floor(Math.random()*(range_Stop - range_Start))+range_Start ;
 }
@@ -454,7 +454,7 @@ function getRandom( range_Start , range_Stop){
 //learning log
 
 
-/*//¶ÔÏóµÄÃ¶¾Ù
+/*//å¯¹è±¡çš„æšä¸¾
 var notificationDivAfter = {
 	background : "",
 	top : "",
@@ -465,7 +465,7 @@ for(var p in notificationDivAfter){
 }
 */
 
-///°ÑÒ»¸öobjÖĞµÄÊôĞÔÓëÁíÒ»¸öobjÖĞÓĞÏàÍ¬Ãû×ÖµÄÊôĞÔÉèÖÃÏàÍ¬£¬
+///æŠŠä¸€ä¸ªobjä¸­çš„å±æ€§ä¸å¦ä¸€ä¸ªobjä¸­æœ‰ç›¸åŒåå­—çš„å±æ€§è®¾ç½®ç›¸åŒï¼Œ
 
 /*
 function setE(elem,setstyle){
@@ -475,9 +475,9 @@ function setE(elem,setstyle){
 			if( p == i ) 
 				elem.style[p] = setstyle[p] ;
 		}
-		//È»ºóÎÒ·¢ÏÖÊÇÍ¨¹ı[p]À´¶ÁÈ¡styleÖĞpµÄÊôĞÔ£¬¾ÍÒâÎ¶×Åelem.style[p] = setstyle[p] ;¾Í¾ÍĞĞÁË£¡£¡£¡
+		//ç„¶åæˆ‘å‘ç°æ˜¯é€šè¿‡[p]æ¥è¯»å–styleä¸­pçš„å±æ€§ï¼Œå°±æ„å‘³ç€elem.style[p] = setstyle[p] ;å°±å°±è¡Œäº†ï¼ï¼ï¼
 		
-		//elem.style.p = setstyle[p]; //Õâ¸öĞĞ²»Í¨Ó¦Îªp²¢²»ÄÜ´ú±ístyleÀïÃæµÄpËùÖ¸ÏòµÄÊôĞÔÃû×Ö
+		//elem.style.p = setstyle[p]; //è¿™ä¸ªè¡Œä¸é€šåº”ä¸ºpå¹¶ä¸èƒ½ä»£è¡¨styleé‡Œé¢çš„pæ‰€æŒ‡å‘çš„å±æ€§åå­—
 		//elem.style.background = "red";
 		//console.log(elem);
 		//console.log(p+":"+elem.style.p);
