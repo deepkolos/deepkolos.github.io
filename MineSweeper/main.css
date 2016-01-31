@@ -1,0 +1,208 @@
+body {
+	width : 360px ;
+	padding : 0 ;
+	margin : 0 ;
+}
+*{
+	font-family:Microsoft Yahei !important;
+}
+#gameBox {
+	margin-left : 6px ;
+    padding:50px 100px;
+}
+#gameBox  div {
+	width : 40px ;
+	height : 40px ;
+	
+	float : left ;
+    margin-top:4px;
+    margin-left:4px;
+	background : black ;
+	text-align :center ;
+}
+#notification{
+	width: 360px;
+	height: 84px;
+	position: absolute;
+	top: 330px;
+	z-index:-1;
+}
+#notification > div{
+	width: 360px;
+	height: 84px;
+	position: fixed;
+	top:45%;
+	text-align: center;
+}
+#notification > div > span{
+	padding: 8px 20px;
+	background: floralwhite;
+	border-radius:5px;
+	font-size:16px;
+}
+#pageOfEvent{
+	width: 360px;
+	height: 480px;
+	background:white;
+	z-index:-10;
+    position: absolute;
+    top:0;
+    left:0;
+}
+#pageOfEvent > div{
+	position: absolute;
+	width: 360px;
+	opacity: 0;
+	height: 480px;
+	z-index:-10;
+}
+#pageOfEvent div img{
+	width: 360px;
+}
+#flags{
+    width:190px;
+    height:150px;
+    position: fixed;
+    z-index: 20;
+    left:25%;
+    top:25%;
+    background: deepskyblue;
+    transform: scale(1);
+}
+#flags::before{
+    width:13px;
+    height:300px;
+    display: block;
+    margin-left:-13px;
+    background: gray;
+    content: "";
+    float:left;
+}
+.flagContainer{
+    width:100%;
+    height:100%;
+    
+}
+.triangleTop{
+    width:0px;
+    height:0px;
+    border-bottom:75px solid deepskyblue;
+    border-top:0px solid ;
+    border-left:0px solid ;
+    border-right:40px solid RGBA(0,0,0,0);
+    display: block;
+    position: absolute;
+    margin-left:190px;
+    margin-top:0px;
+    content: "";
+    z-index:30;
+}
+
+.triangleBottom{
+    width:0px;
+    height:0px;
+    border-bottom:0px solid ;
+    border-top:75px solid deepskyblue;
+    border-left:0px solid ;
+    border-right:40px solid RGBA(0,0,0,0);;
+    display: block;
+    content: "";
+    z-index:30;
+    position: absolute;
+    margin-left:190px;
+    margin-top:75px;
+}
+#gameStart {
+    position: absolute;
+    margin: 57px 0 0 185px;
+    z-index: 40;
+    font-size: 24px;  
+    cursor:pointer;
+}
+#flags .gaming{
+    width: 100%;
+    height: 100%;
+    
+}
+#flags .setting{
+    width: 100%;
+    height: 100%;
+    font-size:23px;
+}
+.setting > div:nth-of-type(1){
+    width:auto;
+    height:30px;
+    padding:20px 15px 5px 15px;
+    padding-left: 40px;
+}
+.choice{
+    margin-top:0px;
+    width:47px;
+    height:30px;
+    overflow: hidden;
+}
+#difficulty{
+    height:auto;
+    z-index:20;
+    position: relative;
+    background: deepskyblue;
+}
+.setting > div > div {
+    float:left;
+}
+.checkBox{
+    width:80px;
+    float:left;
+    margin-left:10px;
+    margin-top:10px;
+}
+.checkBox .isChecked{
+    width: 12px;
+    height: 12px;
+    content: "";
+    display: block;
+    position: relative;
+    top: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 3px solid black;
+}
+#progressBar{
+    width:0px;
+    background: orangered;
+    position: absolute;
+}
+.gaming{
+    font-size: 75px;
+    opacity: 0;
+    line-height: 99px;
+}
+.gaming div{
+    height:100%;
+    position: absolute;
+}
+.gaming div span{
+    line-height: 99px;
+    width:165px;
+    height:99px;
+    display: block;
+}
+.gaming .inf{
+    margin-top:24px;
+    margin-left:32px;
+    width:165px;
+    height:99px;
+    overflow: hidden;
+}
+.gaming #usedTime{
+    font-size: 70px;
+    line-height: 99px;
+}
+#background img{
+    width: 420px;
+    height: 420px;
+    margin: 13px 0 0 -40px;
+    bottom: -132px;
+    z-index: -1;
+    position: fixed;
+}

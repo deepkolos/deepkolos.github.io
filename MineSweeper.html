@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta content="width=device-width,user-scalable=no" name="viewport">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="DeepKolos" />
+<meta name="keywords" content="DeepKolos,dk,DK,Kolos,kolos,deepkolos,blog,liveCode,aliveCode,alivecode,livecode,minesweeper" />
+<title>MineSweeper For GaLi*</title>
+<!-------------------
+<meta content="width=device-width,user-scalable=no" name="viewport">
+
+Start on:15/1/24
+Done on : 16/1/31
+
+15/12/6:Add CSS3 Animation
+
+DeepKolos
+-------------------->
+<link rel="stylesheet" type="text/css" href="./MineSweeper/main.css"></link>
+</head>
+<body>
+<!--控制面板-->
+<div id="controlPanle">
+    <div id="flags">
+        <div class="flagContainer">
+            <div class="triangleTop"></div>
+            <div class="triangleBottom"></div>
+            <div id="gameStart">Go</div>
+            <div class="setting">
+                <div>
+                    <div>难度:</div> 
+                    <div class="choice">
+                        <div id="difficulty">
+                                <span>容易</span>
+                                <span>普通</span>
+                                <span>困难</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkBox"><div class="isChecked"></div>彩蛋</div>
+                <div class="checkBox"><div class="isChecked"></div>奖励</div>
+                <div class="checkBox"><div class="isChecked"></div>干扰</div>
+                <div class="checkBox"><div class="isChecked"></div>二版</div>
+            </div>
+            <div class="gaming">
+                <div id="progressBar"></div>
+                <div class="inf">
+                    <div class="container">
+                    <span id="progressInf"></span>
+                    <span id="usedTime">123s</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</div>
+</div>
+<div id="background"><img src="./MineSweeper/img/boom.png"></div>
+<!--游戏盒子-->
+<div id="gameBox">
+    
+</div>
+<!--通知窗口-->
+<div id="notification">
+	
+</div>
+<!--事件页面-->
+<div id="pageOfEvent">
+	<!--<div><img src="./MineSweeper/img/01.png"/></div>
+	<div><img src="./MineSweeper/img/02.jpg"></div>
+	<div><img src="./MineSweeper/img/03.jpg"></div>
+	<div><img src="./MineSweeper/img/04.jpg"></div>
+	<div><img src="./MineSweeper/img/05.jpg"></div>
+	<div><img src="./MineSweeper/img/06.jpg"></div>
+	<div><img src="./MineSweeper/img/07.jpg"></div>
+	<div><img src="./MineSweeper/img/08.png"></div>
+	<div><img src="./MineSweeper/img/09.png"></div>
+	<div><img src="./MineSweeper/img/10.png"></div>
+	<div><img src="./MineSweeper/img/11.png"></div>
+	<div><img src="./MineSweeper/img/12.png"></div>
+	<div><img src="./MineSweeper/img/13.png"></div>
+	<div><img src="./MineSweeper/img/14.jpg"></div>
+	<div><img src="./MineSweeper/img/15.png"></div>
+	<div><img src="./MineSweeper/img/16.jpg"></div>
+	<div><img src="./MineSweeper/img/17.jpg"></div>
+	<div><img src="./MineSweeper/img/18.gif"></div>-->
+</div>
+</body>
+</html>
+<script type="text/javascript" src="./MineSweeper/zepto.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./MineSweeper/velocity.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./MineSweeper/main.js" charset="utf-8"></script>
